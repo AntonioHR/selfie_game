@@ -1002,7 +1002,7 @@ Prefab:
     - target: {fileID: 114422457215822194, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_MouseLook.XSensitivity
-      value: -6
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114422457215822194, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
