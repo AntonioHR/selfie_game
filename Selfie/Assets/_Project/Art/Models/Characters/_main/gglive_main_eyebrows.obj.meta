@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 21bc78b6474e5499aabd4ea5bb1ffade
-timeCreated: 1517066839
+guid: c861379b4fc064fe79d6f925bcf3f3d5
+timeCreated: 1517076819
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
+    100000: gglive_main_eyebrows
     100002: //RootNode
-    400000: default
+    400000: gglive_main_eyebrows
     400002: //RootNode
     2100000: palette
-    2300000: default
-    3300000: default
-    4300000: default
+    2300000: gglive_main_eyebrows
+    3300000: gglive_main_eyebrows
+    4300000: gglive_main_eyebrows
   externalObjects: {}
   materials:
     importMaterials: 1

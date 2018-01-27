@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: ffab71063a74c4539a44480cd86855f3
-timeCreated: 1517063022
+guid: f7d27557f82034e3a92b2a930226c06b
+timeCreated: 1517076819
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: gglive_ancient
+    100000: gglive_main_body
     100002: //RootNode
-    400000: gglive_ancient
+    400000: gglive_main_body
     400002: //RootNode
-    2100000: gglive_ancientMat
-    2300000: gglive_ancient
-    3300000: gglive_ancient
-    4300000: gglive_ancient
+    2100000: palette
+    2300000: gglive_main_body
+    3300000: gglive_main_body
+    4300000: gglive_main_body
   externalObjects: {}
   materials:
     importMaterials: 1
