@@ -9,55 +9,76 @@ namespace SelfieTeam.Selfie.Aiming
     {
 
         #region Unity Vars
-        public UnityEvent Targeted;
-        public UnityEvent Untargeted;
+        public UnityEvent EnteredSelfie;
+        public UnityEvent LeftSelfie;
+
+        public UnityEvent BecameQuestTarget;
+        public UnityEvent StopedBeginQuestTarget;
         #endregion
 
-        private bool targeted;
+        private bool isInSelfie;
+        private bool isInQuest;
 
         private int targetedChildren = 0;
+
+        public bool IsQuestTarget
+        {
+            get
+            {
+                return isInQuest;
+            }
+        }
 
         void Start()
         {
         }
 
-        void Update()
+        void LateUpdate()
         {
-
+            if (targetedChildren == 0 && isInSelfie)
+            {
+                OnUntargeted();
+            } else if(targetedChildren > 0 && !isInSelfie)
+            {
+                OnTargeted();
+            }
         }
 
 
         public void OnChildTargeted()
         {
             targetedChildren++;
-            if (targetedChildren == 1)
-            {
-                OnTargeted();
-            }
         }
         public void OnChildUntargeted()
         {
             Debug.Assert(targetedChildren >= 0);
             targetedChildren--;
-            if (targetedChildren == 0)
-            {
-                OnUntargeted();
-            }
+        }
+
+        public void OnBecameQuestTarget()
+        {
+            isInQuest = true;
+            BecameQuestTarget.Invoke();
+        }
+        public void OnStopedBeingQuestTarget()
+        {
+            isInQuest = false;
+            StopedBeginQuestTarget.Invoke();
         }
 
 
         private void OnTargeted()
         {
-            Debug.Assert(!targeted);
-            targeted = true;
-            Targeted.Invoke();
+            Debug.Assert(!isInSelfie);
+            isInSelfie = true;
+            EnteredSelfie.Invoke();
         }
 
         private void OnUntargeted()
         {
-            Debug.Assert(targeted);
-            targeted = false;
-            Untargeted.Invoke();
+            Debug.Assert(isInSelfie);
+            isInSelfie = false;
+            LeftSelfie.Invoke();
         }
     }
 }

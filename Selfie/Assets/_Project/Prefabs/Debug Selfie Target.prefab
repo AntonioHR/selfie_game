@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569cbecaa6441e24a8ec7aea9da09818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Targeted:
+  EnteredSelfie:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 23143447038980250}
@@ -206,7 +206,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  Untargeted:
+  LeftSelfie:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 23143447038980250}
