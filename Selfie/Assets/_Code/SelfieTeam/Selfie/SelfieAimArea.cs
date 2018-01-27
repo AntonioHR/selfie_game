@@ -2,38 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelfieAimArea : MonoBehaviour {
-    private List<SelfieTargetPoint> points;
-
-    public IEnumerable<SelfieTargetPoint> PointsInRange
+namespace SelfieTeam.Selfie
+{
+    public class SelfieAimArea : MonoBehaviour
     {
-        get
+        private List<SelfieTargetPoint> points;
+
+        public IEnumerable<SelfieTargetPoint> PointsInRange
         {
-            return points.AsReadOnly();
+            get
+            {
+                return points.AsReadOnly();
+            }
         }
-    }
 
 
-	// Use this for initialization
-	void Start () {
-        points = new List<SelfieTargetPoint>();
-	}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var targetPoint = other.GetComponent<SelfieTargetPoint>();
-        if(targetPoint != null)
+        // Use this for initialization
+        void Start()
         {
-            points.Add(targetPoint);
+            points = new List<SelfieTargetPoint>();
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        var targetPoint = other.GetComponent<SelfieTargetPoint>();
-        if (targetPoint != null)
+        private void OnTriggerEnter(Collider other)
         {
-            points.Remove(targetPoint);
+            var targetPoint = other.GetComponent<SelfieTargetPoint>();
+            if (targetPoint != null)
+            {
+                points.Add(targetPoint);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            var targetPoint = other.GetComponent<SelfieTargetPoint>();
+            if (targetPoint != null)
+            {
+                points.Remove(targetPoint);
+            }
         }
     }
 }

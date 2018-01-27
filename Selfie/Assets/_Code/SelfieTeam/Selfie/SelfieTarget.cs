@@ -3,55 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SelfieTarget : MonoBehaviour {
-
-    #region Unity Vars
-    public UnityEvent Targeted;
-    public UnityEvent Untargeted;
-    #endregion
-
-    private bool targeted;
-
-    private int targetedChildren = 0;
-    
-	void Start () {
-	}
-	
-	void Update () {
-		
-	}
-
-
-    public void OnChildTargeted()
+namespace SelfieTeam.Selfie
+{
+    public class SelfieTarget : MonoBehaviour
     {
-        targetedChildren++;
-        if (targetedChildren == 1)
+
+        #region Unity Vars
+        public UnityEvent Targeted;
+        public UnityEvent Untargeted;
+        #endregion
+
+        private bool targeted;
+
+        private int targetedChildren = 0;
+
+        void Start()
         {
-            OnTargeted();
         }
-    }
-    public void OnChildUntargeted()
-    {
-        Debug.Assert(targetedChildren >= 0);
-        targetedChildren--;
-        if (targetedChildren == 0)
+
+        void Update()
         {
-            OnUntargeted();
+
         }
-    }
 
 
-    private void OnTargeted()
-    {
-        Debug.Assert(!targeted);
-        targeted = true;
-        Targeted.Invoke();
-    }
+        public void OnChildTargeted()
+        {
+            targetedChildren++;
+            if (targetedChildren == 1)
+            {
+                OnTargeted();
+            }
+        }
+        public void OnChildUntargeted()
+        {
+            Debug.Assert(targetedChildren >= 0);
+            targetedChildren--;
+            if (targetedChildren == 0)
+            {
+                OnUntargeted();
+            }
+        }
 
-    private void OnUntargeted()
-    {
-        Debug.Assert(targeted);
-        targeted = false;
-        Untargeted.Invoke();
+
+        private void OnTargeted()
+        {
+            Debug.Assert(!targeted);
+            targeted = true;
+            Targeted.Invoke();
+        }
+
+        private void OnUntargeted()
+        {
+            Debug.Assert(targeted);
+            targeted = false;
+            Untargeted.Invoke();
+        }
     }
 }

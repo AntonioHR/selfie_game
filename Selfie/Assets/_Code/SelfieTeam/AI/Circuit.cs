@@ -2,32 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Circuit : MonoBehaviour {
-
-    private List<Transform> waypoints;
-
-    public List<Transform> Waypoints
+namespace SelfieTeam.AI
+{
+    public class Circuit : MonoBehaviour
     {
-        get
+
+        private List<Transform> waypoints;
+
+        public List<Transform> Waypoints
         {
-            return new List<Transform>(waypoints);
+            get
+            {
+                return new List<Transform>(waypoints);
+            }
         }
-    }
 
-	// Use this for initialization
-	void Start () {
-        waypoints = new List<Transform>();
-        foreach(Transform child in transform)
+        // Use this for initialization
+        void Start()
         {
-            waypoints.Add(child);
+            waypoints = new List<Transform>();
+            foreach (Transform child in transform)
+            {
+                waypoints.Add(child);
+            }
         }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
-    
 }
