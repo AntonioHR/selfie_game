@@ -15,7 +15,7 @@ namespace SelfieTeam.Selfie.Aiming
         public Vector2 range;
         public Vector2 center;
 
-        private IEnumerable<SelfieTargetPoint> lastPoints = new List<SelfieTargetPoint>();
+        private IEnumerable<SelfieTarget> lastPoints = new List<SelfieTarget>();
 
 
 
@@ -35,33 +35,33 @@ namespace SelfieTeam.Selfie.Aiming
 
         void Update()
         {
-            var hits = new List<SelfieTargetPoint>(PossibleTargets.Where(IsInRange));
+            var hits = new List<SelfieTarget>(PossibleTargets.Where(IsInRange));
 
-            var newlyMissed = new List<SelfieTargetPoint>(lastPoints.Except(hits));
+            var newlyMissed = new List<SelfieTarget>(lastPoints.Except(hits));
             foreach (var missed in newlyMissed)
             {
-                missed.OnstoppedAiming();
+                missed.OnLeftSelfie();
             }
 
-            var newlyHit = new List<SelfieTargetPoint>(hits.Except(lastPoints));
+            var newlyHit = new List<SelfieTarget>(hits.Except(lastPoints));
             foreach (var hit in newlyHit)
             {
-                hit.OnStartedAiming();
+                hit.OnEnteredSelfie();
             }
 
             lastPoints = hits;
         }
 
-        private bool IsInRange(SelfieTargetPoint target)
+        private bool IsInRange(SelfieTarget target)
         {
-            var pos = cam.WorldToViewportPoint(target.transform.position);
+            var pos = cam.WorldToViewportPoint(target.InterestPoint);
             var xOk = pos.x > center.x - range.x && pos.x < center.x + range.x;
             var yOk = pos.y > center.y - range.y && pos.y < center.y + range.y;
             var distanceOk = pos.z > 0;
             return xOk && yOk && distanceOk;
         }
 
-        private IEnumerable<SelfieTargetPoint> PossibleTargets
+        private IEnumerable<SelfieTarget> PossibleTargets
         {
             get
             {
