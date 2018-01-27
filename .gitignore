@@ -21,3 +21,5 @@ Selfie/[Bb]uild/
 sysinfo.txt
 
 Selfie/\.vs/
+
+Selfie/UnityPackageManager/manifest\.json
