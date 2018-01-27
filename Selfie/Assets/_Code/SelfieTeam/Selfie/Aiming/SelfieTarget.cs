@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace SelfieTeam.Selfie.Aiming
 {
+    [RequireComponent(typeof(Collider))]
     public class SelfieTarget : MonoBehaviour
     {
 
@@ -19,6 +21,11 @@ namespace SelfieTeam.Selfie.Aiming
         private bool isInSelfie;
         private bool isInQuest;
 
+        [SerializeField]
+        private Vector3 interestPoint;
+
+        public Vector3 InterestPoint { get { return transform.TransformPoint(interestPoint); } }
+
         private int targetedChildren = 0;
 
         public bool IsQuestTarget
@@ -32,27 +39,18 @@ namespace SelfieTeam.Selfie.Aiming
         void Start()
         {
         }
-
-        void LateUpdate()
+        
+        internal void OnEnteredSelfie()
         {
-            if (targetedChildren == 0 && isInSelfie)
-            {
-                OnUntargeted();
-            } else if(targetedChildren > 0 && !isInSelfie)
-            {
-                OnTargeted();
-            }
+            Debug.Assert(!isInSelfie);
+            isInSelfie = true;
+            EnteredSelfie.Invoke();
         }
-
-
-        public void OnChildTargeted()
+        internal void OnLeftSelfie()
         {
-            targetedChildren++;
-        }
-        public void OnChildUntargeted()
-        {
-            Debug.Assert(targetedChildren >= 0);
-            targetedChildren--;
+            Debug.Assert(isInSelfie);
+            isInSelfie = false;
+            LeftSelfie.Invoke();
         }
 
         public void OnBecameQuestTarget()
@@ -66,19 +64,11 @@ namespace SelfieTeam.Selfie.Aiming
             StopedBeginQuestTarget.Invoke();
         }
 
-
-        private void OnTargeted()
+        private void OnDrawGizmos()
         {
-            Debug.Assert(!isInSelfie);
-            isInSelfie = true;
-            EnteredSelfie.Invoke();
-        }
+            Gizmos.color = Color.yellow;
 
-        private void OnUntargeted()
-        {
-            Debug.Assert(isInSelfie);
-            isInSelfie = false;
-            LeftSelfie.Invoke();
+            Gizmos.DrawSphere(InterestPoint, .1f);
         }
     }
 }

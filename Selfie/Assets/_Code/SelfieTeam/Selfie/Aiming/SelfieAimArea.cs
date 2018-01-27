@@ -6,9 +6,9 @@ namespace SelfieTeam.Selfie.Aiming
 {
     public class SelfieAimArea : MonoBehaviour
     {
-        private List<SelfieTargetPoint> points;
+        private List<SelfieTarget> points;
 
-        public IEnumerable<SelfieTargetPoint> PointsInRange
+        public IEnumerable<SelfieTarget> PointsInRange
         {
             get
             {
@@ -20,12 +20,12 @@ namespace SelfieTeam.Selfie.Aiming
         // Use this for initialization
         void Start()
         {
-            points = new List<SelfieTargetPoint>();
+            points = new List<SelfieTarget>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            var targetPoint = other.GetComponent<SelfieTargetPoint>();
+            var targetPoint = other.GetComponent<SelfieTarget>();
             if (targetPoint != null)
             {
                 points.Add(targetPoint);
@@ -34,7 +34,7 @@ namespace SelfieTeam.Selfie.Aiming
 
         private void OnTriggerExit(Collider other)
         {
-            var targetPoint = other.GetComponent<SelfieTargetPoint>();
+            var targetPoint = other.GetComponent<SelfieTarget>();
             if (targetPoint != null)
             {
                 points.Remove(targetPoint);
