@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace SelfieTeam.Selfie
+namespace SelfieTeam.Selfie.Aiming
 {
     public class SelfieTarget : MonoBehaviour
     {

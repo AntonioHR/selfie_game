@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace SelfieTeam.Selfie
+namespace SelfieTeam.Selfie.Aiming
 {
     public class SelfieAim : MonoBehaviour
     {
-        public Camera camera;
-        public SelfieAimArea area;
+        private Camera cam;
+        private SelfieAimArea area;
+        private bool init = false;
 
         public Vector2 range;
         public Vector2 center;
@@ -21,6 +22,15 @@ namespace SelfieTeam.Selfie
         // Use this for initialization
         void Start()
         {
+            Debug.Assert(init);
+        }
+
+        internal void Init(SelfieAimArea area, Camera camera)
+        {
+            Debug.Assert(!init);
+            init = true;
+            this.area = area;
+            this.cam = camera;
         }
 
         void Update()
@@ -44,7 +54,7 @@ namespace SelfieTeam.Selfie
 
         private bool IsInRange(SelfieTargetPoint target)
         {
-            var pos = camera.WorldToViewportPoint(target.transform.position);
+            var pos = cam.WorldToViewportPoint(target.transform.position);
             var xOk = pos.x > center.x - range.x && pos.x < center.x + range.x;
             var yOk = pos.y > center.y - range.y && pos.y < center.y + range.y;
             var distanceOk = pos.z > 0;

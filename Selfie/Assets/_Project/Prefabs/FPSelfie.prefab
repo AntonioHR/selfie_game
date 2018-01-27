@@ -86,6 +86,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4451901273290378}
+  - component: {fileID: 114343000166985936}
   - component: {fileID: 143708989389035332}
   - component: {fileID: 114422457215822194}
   - component: {fileID: 54903878626052468}
@@ -1407,7 +1408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812518313409526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52573d8c37fd5524aa770e20072e5b62, type: 3}
+  m_Script: {fileID: 11500000, guid: f71150ebeeb660340b528c4e59d1b075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114293996821082576
@@ -1437,6 +1438,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114343000166985936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207221831058666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81ec9a26b2208a428acdcb434239f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 114422457215822194}
+  aim: {fileID: 114568001418001004}
+  area: {fileID: 114218361943380566}
+  selfieCam: {fileID: 20879435462072418}
 --- !u!114 &114422457215822194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1547,11 +1563,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510347118208324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30512a3f74b60c4590f2d8e361a24db, type: 3}
+  m_Script: {fileID: 11500000, guid: df089b0963c0fdd49ab5125813fe2edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 20879435462072418}
-  area: {fileID: 114218361943380566}
   range: {x: 0.2, y: 0.4}
   center: {x: 0.6, y: 0.6}
 --- !u!114 &114585416890136038
