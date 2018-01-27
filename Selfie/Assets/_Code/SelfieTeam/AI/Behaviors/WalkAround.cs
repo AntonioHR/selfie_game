@@ -10,19 +10,17 @@ namespace SelfieTeam.AI
     [RequireComponent(typeof(NavMeshAgent))]
     public class WalkAround : MonoBehaviour
     {
-        public GameObject CircuitObject;
         public float speed = 2;
+        public Circuit circuit;
         private List<Transform> waypoints;
-        private Circuit circuit;
         NavMeshAgent agent;
         int destinationPoint = 0;
         // Use this for initialization
         void Start()
         {
-            agent = GetComponent<NavMeshAgent>();
-            circuit = CircuitObject.GetComponent<Circuit>();
-            agent.speed = speed;
             waypoints = circuit.Waypoints;
+            agent = GetComponent<NavMeshAgent>();
+            agent.speed = speed;
             agent.SetDestination(waypoints[destinationPoint].position);
 
         }
@@ -30,14 +28,20 @@ namespace SelfieTeam.AI
         // Update is called once per frame
         void Update()
         {
+            waypoints = circuit.Waypoints;
             agent.autoBraking = false;
 
+            if(waypoints == null)
+            {
+                waypoints = circuit.Waypoints;
+            }
             this.GoToNextPoint();
         }
 
         void GoToNextPoint()
         {
-            if (waypoints.Count == 0)
+            waypoints = circuit.Waypoints;
+            if (waypoints == null || waypoints.Count == 0)
             {
                 return;
             }

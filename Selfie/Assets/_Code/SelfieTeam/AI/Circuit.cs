@@ -9,16 +9,8 @@ namespace SelfieTeam.AI
 
         private List<Transform> waypoints;
 
-        public List<Transform> Waypoints
-        {
-            get
-            {
-                return new List<Transform>(waypoints);
-            }
-        }
-
         // Use this for initialization
-        void Start()
+        void Awake()
         {
             waypoints = new List<Transform>();
             foreach (Transform child in transform)
@@ -33,7 +25,13 @@ namespace SelfieTeam.AI
 
         }
 
-
+        public List<Transform> Waypoints
+        {
+            get
+            {
+                return new List<Transform>(waypoints);
+            }
+        }
 
     }
 }
