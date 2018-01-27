@@ -312,6 +312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d20c84b7cc45c4c9855fec7ffd256c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CircuitObject: {fileID: 472022848}
+  speed: 2
 --- !u!23 &927894468
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -913,7 +915,7 @@ Prefab:
     - target: {fileID: 224693510936657528, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224490163885846758, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
@@ -933,7 +935,7 @@ Prefab:
     - target: {fileID: 224490163885846758, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224368838657779524, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
@@ -953,7 +955,7 @@ Prefab:
     - target: {fileID: 224368838657779524, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224841285674695076, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
@@ -973,7 +975,7 @@ Prefab:
     - target: {fileID: 224841285674695076, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224349270666019522, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
@@ -993,7 +995,7 @@ Prefab:
     - target: {fileID: 224349270666019522, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224695054148190948, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
@@ -1013,7 +1015,7 @@ Prefab:
     - target: {fileID: 224695054148190948, guid: 2de8e59d02f92734a9dbd32a8f2df76c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2de8e59d02f92734a9dbd32a8f2df76c, type: 2}
