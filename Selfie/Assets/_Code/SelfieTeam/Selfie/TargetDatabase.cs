@@ -23,8 +23,9 @@ namespace SelfieTeam.Selfie
         {
             return dict[id];
         }
+        
 
-        void Awake()
+        internal void Init()
         {
             dict = new Dictionary<string, SelfieTarget>();
             foreach (var entry in entries)

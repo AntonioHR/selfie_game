@@ -11,18 +11,24 @@ public class SelfieProgressIndicator : MonoBehaviour
 {
     public static SelfieProgressIndicator Instance { get; private set; }
 
+    public AnimationCurve curve;
     public List<Sprite> spriteSequence;
     public Image img;
     [HideInInspector]
     public Player player;
-    
+
+
+    public void Init()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         var look = gameObject.AddComponent<LookAtWithAxis>();
         look.axis = Vector3.up;
         look.target = player.transform;
 
-        Instance = this;
     }
     private void Update()
     {
@@ -30,7 +36,7 @@ public class SelfieProgressIndicator : MonoBehaviour
     }
     public void SetProgress(float val)
     {
-        int result = (int)((spriteSequence.Count - 1) * val);
+        int result = (int)((spriteSequence.Count - 1) * curve.Evaluate(val));
         img.sprite = spriteSequence[result];
     }
     public void SetTarget(SelfieTarget target)

@@ -20,6 +20,8 @@ namespace SelfieTeam.Selfie
         public void Awake()
         {
             player.Init();
+            progressIndicator.Init();
+            db.Init();
             progressIndicator.player = player;
 
             questRunner.Init(interfaceManager, db);
