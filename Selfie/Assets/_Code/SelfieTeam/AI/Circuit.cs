@@ -7,16 +7,14 @@ namespace SelfieTeam.AI
     public class Circuit : MonoBehaviour
     {
 
-        private List<Transform> waypoints;
+        public List<Transform> waypoints;
 
         // Use this for initialization
         void Awake()
         {
-            waypoints = new List<Transform>();
-            foreach (Transform child in transform)
-            {
-                waypoints.Add(child);
-            }
+            generateWaypoints();
+            Debug.Log(waypoints[0] == transform);
+
         }
 
         // Update is called once per frame
@@ -25,13 +23,16 @@ namespace SelfieTeam.AI
 
         }
 
-        public List<Transform> Waypoints
+        public void generateWaypoints()
         {
-            get
+            waypoints = new List<Transform>();
+            foreach (Transform child in transform)
             {
-                return new List<Transform>(waypoints);
+                waypoints.Add(child);
             }
         }
+
+        
 
     }
 }

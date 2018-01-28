@@ -18,7 +18,7 @@ namespace SelfieTeam.AI
         // Use this for initialization
         void Start()
         {
-            waypoints = circuit.Waypoints;
+            waypoints = circuit.waypoints;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = speed;
             agent.SetDestination(waypoints[destinationPoint].position);
@@ -28,19 +28,19 @@ namespace SelfieTeam.AI
         // Update is called once per frame
         void Update()
         {
-            waypoints = circuit.Waypoints;
+            waypoints = circuit.waypoints;
             agent.autoBraking = false;
 
             if(waypoints == null)
             {
-                waypoints = circuit.Waypoints;
+                waypoints = circuit.waypoints;
             }
             this.GoToNextPoint();
         }
 
         void GoToNextPoint()
         {
-            waypoints = circuit.Waypoints;
+            waypoints = circuit.waypoints;
             if (waypoints == null || waypoints.Count == 0)
             {
                 return;
@@ -53,5 +53,7 @@ namespace SelfieTeam.AI
 
 
         }
+
+
     }
 }
