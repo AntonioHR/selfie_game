@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using System;
 
 public class InterfaceManager : MonoBehaviour {
+
+    public static InterfaceManager Instance { get; private set;}
 
     public Image batteryImage;
     public Transform commentsContent;
@@ -25,10 +28,19 @@ public class InterfaceManager : MonoBehaviour {
         batteryImage.DOFillAmount(percent, duration);
     }
 
+    internal void SetBatteryNow(float val)
+    {
+        batteryImage.fillAmount = val;
+    }
+
     public void AddComent(string text){
         GameObject obj = Instantiate(commentPrefab,transform.position, transform.rotation,commentsContent);
         obj.GetComponent<CommentContent>().SetText(text);
         //obj.GetComponent<CommentContent>().set
+    }
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void Update()

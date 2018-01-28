@@ -13,13 +13,13 @@ namespace SelfieTeam.Selfie.Aiming
         #region Unity Vars
         public UnityEvent EnteredSelfie;
         public UnityEvent LeftSelfie;
-
-        public UnityEvent BecameQuestTarget;
-        public UnityEvent StopedBeginQuestTarget;
         #endregion
 
         private bool isInSelfie;
-        private bool isInQuest;
+        private float selfieStart = 0;
+
+        public float SelfieTime { get { return isInSelfie ? Time.time - selfieStart : 0; } }
+        public bool IsInSelfie { get { return isInSelfie ; } }
 
         [SerializeField]
         private Vector3 interestPoint;
@@ -27,23 +27,15 @@ namespace SelfieTeam.Selfie.Aiming
         public Vector3 InterestPoint { get { return transform.TransformPoint(interestPoint); } }
 
         private int targetedChildren = 0;
-
-        public bool IsQuestTarget
-        {
-            get
-            {
-                return isInQuest;
-            }
-        }
-
+        
         void Start()
         {
         }
-        
         internal void OnEnteredSelfie()
         {
             Debug.Assert(!isInSelfie);
             isInSelfie = true;
+            selfieStart = Time.time;
             EnteredSelfie.Invoke();
         }
         internal void OnLeftSelfie()
@@ -52,18 +44,7 @@ namespace SelfieTeam.Selfie.Aiming
             isInSelfie = false;
             LeftSelfie.Invoke();
         }
-
-        public void OnBecameQuestTarget()
-        {
-            isInQuest = true;
-            BecameQuestTarget.Invoke();
-        }
-        public void OnStopedBeingQuestTarget()
-        {
-            isInQuest = false;
-            StopedBeginQuestTarget.Invoke();
-        }
-
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
