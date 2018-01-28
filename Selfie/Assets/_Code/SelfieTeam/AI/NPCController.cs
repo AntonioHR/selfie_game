@@ -16,20 +16,31 @@ namespace SelfieTeam.AI
         public bool isAction;
         public bool lookAt;
 
+        public NavMeshAgent Agent
+        {
+            get
+            {
+                return agent;
+            }
+        }
+
         // Use this for initialization
-        void Awake()
+        void Start()
         {
             agent = GetComponent<NavMeshAgent>();
             isIdle = false;
             isWalking = false;
             isAction = false;
             lookAt = false;
+
         }
 
         // Update is called once per frame
         void Update()
         {
+            behaviorAgent.bootCoroutine(this);
 
         }
+
     }
 }

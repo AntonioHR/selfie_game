@@ -9,7 +9,6 @@ namespace SelfieTeam.AI
             
         // Use this for initialization
 	    void Awake () {
-            StartCoroutine(OnStartBehavior());
 	    }
 	
 	    // Update is called once per frame
@@ -17,11 +16,11 @@ namespace SelfieTeam.AI
 		
 	    }
 
-        private IEnumerator OnStartBehavior()
+        public override IEnumerator bootCoroutine(NPCController controller)
         {
             while (true)
             {
-                yield return WalkAround();
+                yield return WalkAround(controller, controller.Agent);
             }  
         }
 

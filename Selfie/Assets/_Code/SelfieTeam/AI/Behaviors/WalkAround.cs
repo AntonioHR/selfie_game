@@ -13,7 +13,7 @@ namespace SelfieTeam.AI
         public float speed = 2;
         public Circuit circuit;
         private List<Transform> waypoints;
-        NavMeshAgent agent;
+        private NavMeshAgent agent;
         int destinationPoint = 0;
         // Use this for initialization
         void Start()

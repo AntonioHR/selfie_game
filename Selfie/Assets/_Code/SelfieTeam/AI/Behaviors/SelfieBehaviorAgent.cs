@@ -6,12 +6,8 @@ using UnityEngine.AI;
 namespace SelfieTeam.AI {     
     public class SelfieBehaviorAgent : MonoBehaviour {
 
-        private NavMeshAgent agent;
-        private NPCController controller;
 	    // Use this for initialization
 	    void Start () {
-            agent = GetComponent<NavMeshAgent>();
-            controller = GetComponent<NPCController>();
 	    }
 	
 	    // Update is called once per frame
@@ -19,7 +15,14 @@ namespace SelfieTeam.AI {
 		
 	    }
 
-        protected IEnumerator WalkAround()
+
+        // Function to be Overrided on children
+        public virtual IEnumerator bootCoroutine(NPCController controller)
+        {
+            yield return null;
+        }
+
+        protected IEnumerator WalkAround(NPCController controller, NavMeshAgent agent)
         {
             int destinationPoint = 0;
             
