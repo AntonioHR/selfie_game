@@ -46,6 +46,8 @@ namespace SelfieTeam.Selfie.Quests
 
         public IEnumerator ListenForSelfie(SelfieTarget selfieTarget)
         {
+            SelfieProgressIndicator.Instance.SetTarget(selfieTarget);
+            SelfieProgressIndicator.Instance.SetVisible(false);
             return ListenForSelfie(selfieTarget, defaultSelfieTime, ShowSelfieFeedback, ToggleSelfieDisplay);
         }
 
@@ -72,12 +74,14 @@ namespace SelfieTeam.Selfie.Quests
         }
         public void ToggleSelfieDisplay(bool val)
         {
-            interfManager.batteryImage.enabled = val;
+            //interfManager.batteryImage.enabled = val;
+            SelfieProgressIndicator.Instance.SetVisible(val);
         }
 
         public void ShowSelfieFeedback(float val)
         {
-            interfManager.SetBatteryNow(val);
+            SelfieProgressIndicator.Instance.SetProgress(val);
+            //interfManager.SetBatteryNow(val);
         }
 
         public void ShowMessage(string v)

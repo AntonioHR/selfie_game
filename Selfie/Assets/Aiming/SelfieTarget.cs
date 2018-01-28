@@ -23,8 +23,11 @@ namespace SelfieTeam.Selfie.Aiming
 
         [SerializeField]
         private Vector3 interestPoint;
+        [SerializeField]
+        private Vector3 indicatorPoint;
 
         public Vector3 InterestPoint { get { return transform.TransformPoint(interestPoint); } }
+        public Vector3 IndicatorPoint { get { return transform.TransformPoint(indicatorPoint); } }
 
         private int targetedChildren = 0;
         
@@ -50,6 +53,9 @@ namespace SelfieTeam.Selfie.Aiming
             Gizmos.color = Color.yellow;
 
             Gizmos.DrawSphere(InterestPoint, .1f);
+            Gizmos.color = Color.cyan;
+
+            Gizmos.DrawSphere(IndicatorPoint, .1f);
         }
     }
 }
