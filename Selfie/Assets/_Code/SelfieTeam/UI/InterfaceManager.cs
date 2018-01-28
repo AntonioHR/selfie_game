@@ -11,6 +11,7 @@ public class InterfaceManager : MonoBehaviour {
     public static InterfaceManager Instance { get; private set;}
 
     public Image batteryImage;
+    public ScrollRect scroll;
     public Transform commentsContent;
     public TextMeshProUGUI viewersText;
     public GameObject commentPrefab;
@@ -36,6 +37,7 @@ public class InterfaceManager : MonoBehaviour {
     public void AddComent(string text){
         GameObject obj = Instantiate(commentPrefab,transform.position, transform.rotation,commentsContent);
         obj.GetComponent<CommentContent>().SetText(text);
+        scroll.DOVerticalNormalizedPos(0, 1);
         //obj.GetComponent<CommentContent>().set
     }
     private void Awake()

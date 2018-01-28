@@ -108,6 +108,12 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &63748879 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114345716065420800, guid: ecca9f2440da2430ca33eaefff540108,
+    type: 2}
+  m_PrefabInternal: {fileID: 604324294}
+  m_Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &68005721
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +818,7 @@ Prefab:
     - target: {fileID: 224894533187768948, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.154
       objectReference: {fileID: 0}
     - target: {fileID: 224313832766008620, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -832,7 +838,7 @@ Prefab:
     - target: {fileID: 224313832766008620, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.154
       objectReference: {fileID: 0}
     - target: {fileID: 224866720072552324, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -852,7 +858,7 @@ Prefab:
     - target: {fileID: 224866720072552324, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.154
       objectReference: {fileID: 0}
     - target: {fileID: 224476581711085730, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -872,7 +878,7 @@ Prefab:
     - target: {fileID: 224476581711085730, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.49
       objectReference: {fileID: 0}
     - target: {fileID: 224428270641565116, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -892,7 +898,7 @@ Prefab:
     - target: {fileID: 224428270641565116, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.154
       objectReference: {fileID: 0}
     - target: {fileID: 224054073192777346, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -912,7 +918,7 @@ Prefab:
     - target: {fileID: 224054073192777346, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -12.154
       objectReference: {fileID: 0}
     - target: {fileID: 224874941163976838, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -932,7 +938,7 @@ Prefab:
     - target: {fileID: 224874941163976838, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.37
       objectReference: {fileID: 0}
     - target: {fileID: 224681508550162444, guid: ecca9f2440da2430ca33eaefff540108,
         type: 2}
@@ -974,6 +980,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: -17
       objectReference: {fileID: 0}
+    - target: {fileID: 114489995717781804, guid: ecca9f2440da2430ca33eaefff540108,
+        type: 2}
+      propertyPath: scroll
+      value: 
+      objectReference: {fileID: 63748879}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecca9f2440da2430ca33eaefff540108, type: 2}
   m_IsPrefabParent: 0

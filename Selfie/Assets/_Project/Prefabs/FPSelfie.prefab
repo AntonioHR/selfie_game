@@ -2378,6 +2378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batteryImage: {fileID: 114224347385785076}
+  scroll: {fileID: 114345716065420800}
   commentsContent: {fileID: 224062861239179710}
   viewersText: {fileID: 114052727940859028}
   commentPrefab: {fileID: 1952006318838044, guid: 56a34ab65240f4b479f41321f687fbc2,
