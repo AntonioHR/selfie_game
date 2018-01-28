@@ -12,35 +12,50 @@ namespace SelfieTeam.AI
     {
         public float speed = 2;
         public Circuit circuit;
+        private NPCController controller;
         private List<Transform> waypoints;
         private NavMeshAgent agent;
         int destinationPoint = 0;
         // Use this for initialization
         void Start()
         {
-            waypoints = circuit.waypoints;
+            controller = GetComponent<NPCController>();
+            //circuit = controller.circuit;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = speed;
-            agent.SetDestination(waypoints[destinationPoint].position);
-
+            //agent.SetDestination(waypoints[destinationPoint].position);
         }
 
         // Update is called once per frame
         void Update()
         {
-            waypoints = circuit.waypoints;
+            if(agent.speed > 1)
+            {
+                controller.isWalking = true;
+            } else
+            {
+                controller.isWalking = false;
+            }
+
+            if(circuit == null)
+            {
+                circuit = GetComponent<Circuit>();
+            }
+
+            waypoints = new List<Transform>();
+            waypoints = circuit.Waypoints;
             agent.autoBraking = false;
 
             if(waypoints == null)
             {
-                waypoints = circuit.waypoints;
+                waypoints = circuit.Waypoints;
             }
             this.GoToNextPoint();
         }
 
         void GoToNextPoint()
         {
-            waypoints = circuit.waypoints;
+            waypoints = circuit.Waypoints;
             if (waypoints == null || waypoints.Count == 0)
             {
                 return;

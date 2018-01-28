@@ -9,7 +9,6 @@ namespace SelfieTeam.AI
     public class NPCController : MonoBehaviour
     {
         public Circuit circuit;
-        public SelfieBehaviorAgent behaviorAgent;
         private NavMeshAgent agent;
         public bool isIdle;
         public bool isWalking;
@@ -38,7 +37,6 @@ namespace SelfieTeam.AI
         // Update is called once per frame
         void Update()
         {
-            behaviorAgent.bootCoroutine(this);
 
         }
 

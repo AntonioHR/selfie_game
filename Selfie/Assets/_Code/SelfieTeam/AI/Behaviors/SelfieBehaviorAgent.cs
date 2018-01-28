@@ -30,7 +30,7 @@ namespace SelfieTeam.AI {
             //Circuit circuit = controller.GetComponent<Circuit>();
             agent = GetComponent<NavMeshAgent>();
             // Maybe, an IF instead of a while? 
-            List<Transform> waypoints = controller.GetComponent<Circuit>().waypoints;
+            List<Transform> waypoints = controller.GetComponent<Circuit>().Waypoints;
             
             if (waypoints == null || waypoints.Count == 0)
             {

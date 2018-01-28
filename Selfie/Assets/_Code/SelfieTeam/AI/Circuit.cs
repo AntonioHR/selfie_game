@@ -7,13 +7,26 @@ namespace SelfieTeam.AI
     public class Circuit : MonoBehaviour
     {
 
-        public List<Transform> waypoints;
+        private List<Transform> waypoints;
+
+        public List<Transform> Waypoints
+        {
+            get
+            {
+                return waypoints;
+            }
+
+            set
+            {
+                waypoints = value;
+            }
+        }
 
         // Use this for initialization
         void Awake()
         {
             generateWaypoints();
-            Debug.Log(waypoints[0] == transform);
+            Debug.Log(Waypoints[0] == transform);
 
         }
 
@@ -25,10 +38,10 @@ namespace SelfieTeam.AI
 
         public void generateWaypoints()
         {
-            waypoints = new List<Transform>();
+            Waypoints = new List<Transform>();
             foreach (Transform child in transform)
             {
-                waypoints.Add(child);
+                Waypoints.Add(child);
             }
         }
 
