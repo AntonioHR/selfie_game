@@ -29,6 +29,11 @@ namespace SelfieTeam.Selfie.Aiming
         public Vector3 InterestPoint { get { return transform.TransformPoint(interestPoint); } }
         public Vector3 IndicatorPoint { get { return transform.TransformPoint(indicatorPoint); } }
 
+        public Collider Col
+        {
+            get { return GetComponent<Collider>(); }
+        }
+
         private int targetedChildren = 0;
         
         void Start()
