@@ -10,4 +10,8 @@ public class LoadScene : MonoBehaviour {
     public void OpenScene(){
         SceneManager.LoadScene(sceneName);
     }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
 }
