@@ -12,6 +12,7 @@ namespace SelfieTeam.Selfie.Aiming
         private SelfieAimArea area;
         private bool init = false;
 
+        public float maxDistance = 11;
         public Vector2 range;
         public Vector2 center;
         public LayerMask raycastLayers;
@@ -58,7 +59,7 @@ namespace SelfieTeam.Selfie.Aiming
             var pos = cam.WorldToViewportPoint(target.InterestPoint);
             var xOk = pos.x > center.x - range.x && pos.x < center.x + range.x;
             var yOk = pos.y > center.y - range.y && pos.y < center.y + range.y;
-            var distanceOk = pos.z > 0;
+            var distanceOk = pos.z > 0 && (Vector2.Distance(target.InterestPoint, cam.transform.position) < maxDistance || target.IgnoresDistance);
 
             var ray = cam.ViewportPointToRay(pos);
             RaycastHit hit;
@@ -73,6 +74,10 @@ namespace SelfieTeam.Selfie.Aiming
                 return area.PointsInRange;
             }
         }
-
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, maxDistance);
+        }
     }
 }

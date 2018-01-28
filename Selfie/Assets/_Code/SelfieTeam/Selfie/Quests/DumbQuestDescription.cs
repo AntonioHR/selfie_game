@@ -20,7 +20,6 @@ namespace SelfieTeam.Selfie.Quests
         {
             runner.ShowMessage(msg1, avatar1);
             yield return runner.ListenForSelfie(runner.GetTarget(targetId));
-            //runner.RemoveMessage()
             runner.ShowMessage(msg2, avatar2);
         }
         

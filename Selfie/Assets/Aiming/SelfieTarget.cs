@@ -25,6 +25,8 @@ namespace SelfieTeam.Selfie.Aiming
         private Vector3 interestPoint;
         [SerializeField]
         private Vector3 indicatorPoint;
+        [SerializeField]
+        private bool ignoreDistance;
 
         public Vector3 InterestPoint { get { return transform.TransformPoint(interestPoint); } }
         public Vector3 IndicatorPoint { get { return transform.TransformPoint(indicatorPoint); } }
@@ -33,6 +35,8 @@ namespace SelfieTeam.Selfie.Aiming
         {
             get { return GetComponent<Collider>(); }
         }
+
+        public bool IgnoresDistance { get { return ignoreDistance; }  }
 
         private int targetedChildren = 0;
         
