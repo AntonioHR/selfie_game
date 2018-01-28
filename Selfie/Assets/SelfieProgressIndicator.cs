@@ -21,13 +21,13 @@ public class SelfieProgressIndicator : MonoBehaviour
     public void Init(Player player)
     {
         this.player = player;
+        var look = gameObject.AddComponent<LookAtWithAxis>();
+        look.axis = Vector3.up;
+        look.target = player.transform;
     }
 
     private void Start()
     {
-        var look = gameObject.AddComponent<LookAtWithAxis>();
-        look.axis = Vector3.up;
-        look.target = player.transform;
 
     }
     private void Update()
@@ -47,10 +47,5 @@ public class SelfieProgressIndicator : MonoBehaviour
     internal void SetVisible(bool val)
     {
         img.enabled = val;
-    }
-
-    internal void Init(object instance)
-    {
-        throw new NotImplementedException();
     }
 }

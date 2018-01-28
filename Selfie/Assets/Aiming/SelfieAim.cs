@@ -64,6 +64,10 @@ namespace SelfieTeam.Selfie.Aiming
             var ray = cam.ViewportPointToRay(pos);
             RaycastHit hit;
             var raycastOk = Physics.Raycast(ray, out hit, float.PositiveInfinity, raycastLayers.value) && hit.collider.gameObject == target.gameObject;
+            if(!raycastOk)
+            {
+                Debug.Log(hit.collider);
+            }
             return xOk && yOk && distanceOk && raycastOk;
         }
 
