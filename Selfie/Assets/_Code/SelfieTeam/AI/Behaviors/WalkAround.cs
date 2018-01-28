@@ -11,7 +11,7 @@ namespace SelfieTeam.AI
     public class WalkAround : MonoBehaviour
     {
         public float speed = 2;
-        public Circuit circuit;
+        private Circuit circuit;
         private NPCController controller;
         private List<Transform> waypoints;
         private NavMeshAgent agent;
@@ -20,7 +20,6 @@ namespace SelfieTeam.AI
         void Start()
         {
             controller = GetComponent<NPCController>();
-            //circuit = controller.circuit;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = speed;
             //agent.SetDestination(waypoints[destinationPoint].position);
@@ -29,6 +28,7 @@ namespace SelfieTeam.AI
         // Update is called once per frame
         void Update()
         {
+            circuit = controller.circuit;
             if(agent.speed > 1)
             {
                 controller.isWalking = true;
@@ -55,6 +55,7 @@ namespace SelfieTeam.AI
 
         void GoToNextPoint()
         {
+            agent = controller.Agent;
             waypoints = circuit.Waypoints;
             if (waypoints == null || waypoints.Count == 0)
             {
@@ -63,10 +64,9 @@ namespace SelfieTeam.AI
             else if (Vector3.Distance(waypoints[destinationPoint].position, transform.position) < 1)
             {
                 destinationPoint = (destinationPoint + 1) % waypoints.Count;
-                agent.SetDestination(waypoints[destinationPoint].position);
             }
 
-
+            agent.SetDestination(waypoints[destinationPoint].position);
         }
 
 
