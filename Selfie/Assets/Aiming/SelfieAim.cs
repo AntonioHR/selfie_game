@@ -59,15 +59,12 @@ namespace SelfieTeam.Selfie.Aiming
             var pos = cam.WorldToViewportPoint(target.InterestPoint);
             var xOk = pos.x > center.x - range.x && pos.x < center.x + range.x;
             var yOk = pos.y > center.y - range.y && pos.y < center.y + range.y;
-            var distanceOk = pos.z > 0 && (Vector2.Distance(target.InterestPoint, cam.transform.position) < maxDistance || target.IgnoresDistance);
+            var dist = Vector3.Distance(target.InterestPoint, transform.position);
+            var distanceOk = pos.z > 0 && (dist < maxDistance || target.IgnoresDistance);
 
             var ray = cam.ViewportPointToRay(pos);
             RaycastHit hit;
-            var raycastOk = Physics.Raycast(ray, out hit, float.PositiveInfinity, raycastLayers.value) && hit.collider.gameObject == target.gameObject;
-            if(!raycastOk)
-            {
-                Debug.Log(hit.collider);
-            }
+            var raycastOk = target.IgnoresCollision || Physics.Raycast(ray, out hit, float.PositiveInfinity, raycastLayers.value) && hit.collider.gameObject == target.gameObject;
             return xOk && yOk && distanceOk && raycastOk;
         }
 

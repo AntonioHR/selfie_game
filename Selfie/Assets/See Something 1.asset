@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cba9f1c1a0099848b16c894ad23403e, type: 3}
+  m_Name: See Something 1
+  m_EditorClassIdentifier: 
+  points: 100
+  targetId: helicopter
+  avatar: {fileID: 21300000, guid: 616d13f7919a6054ea1d2500ec7d5520, type: 3}
+  msg1: OMG. LOOK AT THAT HELI. FOLLOW IT
+  msg2: KEEP FOLLOWING IT!!!!
+  msg3: YOU JUST MADE MY DAY. I TOTALLY LOVE AIRCRAFTS
+  followTime: 3

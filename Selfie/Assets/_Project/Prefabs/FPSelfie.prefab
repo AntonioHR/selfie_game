@@ -1149,7 +1149,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ead6fb361ac544499c3db3e176b19c6, type: 2}
+  - {fileID: 2100000, guid: 22237c8b2c2e4a64db5020eabf0f7303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1181,7 +1181,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ead6fb361ac544499c3db3e176b19c6, type: 2}
+  - {fileID: 2100000, guid: 22237c8b2c2e4a64db5020eabf0f7303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1277,7 +1277,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ead6fb361ac544499c3db3e176b19c6, type: 2}
+  - {fileID: 2100000, guid: 22237c8b2c2e4a64db5020eabf0f7303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1341,7 +1341,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ead6fb361ac544499c3db3e176b19c6, type: 2}
+  - {fileID: 2100000, guid: 22237c8b2c2e4a64db5020eabf0f7303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1373,7 +1373,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1ead6fb361ac544499c3db3e176b19c6, type: 2}
+  - {fileID: 2100000, guid: 22237c8b2c2e4a64db5020eabf0f7303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2448,6 +2448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df089b0963c0fdd49ab5125813fe2edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 8
   range: {x: 0.2, y: 0.4}
   center: {x: 0.6, y: 0.6}
   raycastLayers:
@@ -2730,7 +2731,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114700166935971296}
   m_HandleRect: {fileID: 224487062364219516}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2845,8 +2846,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.5
+  m_Height: 3.01
+  m_Radius: 1.04
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -3009,7 +3010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000038827748, y: -0.0000052706587}
+  m_AnchoredPosition: {x: -0.0000038827748, y: 0.000017991779}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224070133102195462
