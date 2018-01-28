@@ -43,7 +43,10 @@ namespace SelfieTeam.AI
             }
 
             waypoints = new List<Transform>();
-            waypoints = circuit.Waypoints;
+            if (circuit != null)
+            {
+                waypoints = circuit.Waypoints;
+            }
             agent.autoBraking = false;
 
             if(waypoints == null)
@@ -56,7 +59,10 @@ namespace SelfieTeam.AI
         void GoToNextPoint()
         {
             agent = controller.Agent;
-            waypoints = circuit.Waypoints;
+            if (circuit != null)
+            {
+                waypoints = circuit.Waypoints;
+            }
             if (waypoints == null || waypoints.Count == 0)
             {
                 return;
