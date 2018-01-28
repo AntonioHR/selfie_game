@@ -9750,6 +9750,29 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 793109861deac46cdaa58b152b204c0b, type: 3}
+--- !u!114 &1092088510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1092088508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569cbecaa6441e24a8ec7aea9da09818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnteredSelfie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  LeftSelfie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  interestPoint: {x: 0, y: 2.07, z: 0}
+  indicatorPoint: {x: 0, y: 2.7, z: 0}
 --- !u!114 &1092887211 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114343000166985936, guid: ecca9f2440da2430ca33eaefff540108,
@@ -12175,6 +12198,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd9855912fd00aa459dcb64444c7b929, type: 2}
   - {fileID: 11400000, guid: 82478bd6f972e094198e182f333206f2, type: 2}
   - {fileID: 11400000, guid: 805058ba603d8e947bdd3ea88d395e0a, type: 2}
+  - {fileID: 11400000, guid: 4f027f4ea69031f4f8fa185666a7f220, type: 2}
 --- !u!114 &1590966080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12193,6 +12217,8 @@ MonoBehaviour:
     target: {fileID: 1742673437}
   - id: fountain
     target: {fileID: 385774352}
+  - id: statue
+    target: {fileID: 1092088510}
 --- !u!4 &1611506239 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: a2e2388d6aa524e208d9db318880da92, type: 3}
