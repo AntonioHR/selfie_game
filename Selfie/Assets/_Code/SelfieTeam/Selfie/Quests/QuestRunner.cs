@@ -22,15 +22,16 @@ namespace SelfieTeam.Selfie.Quests
         {
             interfManager.AddComent(msg1, avatar);
         }
+        
 
         public float defaultSelfieTime = 2;
+        public float fastSelfieTime = 1f;
 
         public void Init(InterfaceManager interfManager, TargetDatabase db)
         {
             this.interfManager = interfManager;
             this.db = db;
         }
-
         internal void GivePoints(int extraPoints)
         {
             this.points += extraPoints;
@@ -51,9 +52,11 @@ namespace SelfieTeam.Selfie.Quests
 
         public IEnumerator ListenForSelfie(SelfieTarget selfieTarget)
         {
-            SelfieProgressIndicator.Instance.SetTarget(selfieTarget);
-            SelfieProgressIndicator.Instance.SetVisible(false);
             return ListenForSelfie(selfieTarget, defaultSelfieTime, ShowSelfieFeedback, ToggleSelfieDisplay);
+        }
+        public IEnumerator ListenForSelfie(SelfieTarget selfieTarget, float selfieTime)
+        {
+            return ListenForSelfie(selfieTarget, selfieTime, ShowSelfieFeedback, ToggleSelfieDisplay);
         }
 
         internal SelfieTarget GetTarget(string targetId)
@@ -91,6 +94,8 @@ namespace SelfieTeam.Selfie.Quests
 
         public IEnumerator ListenForSelfie(SelfieTarget target, float requiredTime, Action<float> feedbackCallback, Action<bool> toggleCallback)
         {
+            SelfieProgressIndicator.Instance.SetTarget(target);
+            SelfieProgressIndicator.Instance.SetVisible(false);
             bool inSelfie = target.IsInSelfie;
             toggleCallback(inSelfie);
             while (true)

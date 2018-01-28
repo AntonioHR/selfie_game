@@ -9,6 +9,7 @@ namespace SelfieTeam.Selfie.Quests
     class QuestSequencer : MonoBehaviour
     {
         public List<QuestDescription> FirstQuests;
+        public List<QuestDescription> AsyncQuests;
 
         private List<QuestDescription> availableFirstQuests;
 
@@ -16,6 +17,10 @@ namespace SelfieTeam.Selfie.Quests
         {
             availableFirstQuests = new List<QuestDescription>(FirstQuests);
             RunNextQuestFromFirstPool();
+            foreach (var quest in AsyncQuests)
+            {
+                QuestRunner.Instance.RunQuest(quest, ()=>{ });
+            }
         }
 
         private void RunNextQuestFromFirstPool()
