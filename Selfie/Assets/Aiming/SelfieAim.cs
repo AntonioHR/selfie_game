@@ -14,6 +14,7 @@ namespace SelfieTeam.Selfie.Aiming
 
         public Vector2 range;
         public Vector2 center;
+        public LayerMask raycastLayers;
 
         private IEnumerable<SelfieTarget> lastPoints = new List<SelfieTarget>();
 
@@ -58,7 +59,11 @@ namespace SelfieTeam.Selfie.Aiming
             var xOk = pos.x > center.x - range.x && pos.x < center.x + range.x;
             var yOk = pos.y > center.y - range.y && pos.y < center.y + range.y;
             var distanceOk = pos.z > 0;
-            return xOk && yOk && distanceOk;
+
+            var ray = cam.ViewportPointToRay(pos);
+            RaycastHit hit;
+            var raycastOk = Physics.Raycast(ray, out hit, float.PositiveInfinity, raycastLayers.value) && hit.collider.gameObject == target.gameObject;
+            return xOk && yOk && distanceOk && raycastOk;
         }
 
         private IEnumerable<SelfieTarget> PossibleTargets
@@ -68,5 +73,6 @@ namespace SelfieTeam.Selfie.Aiming
                 return area.PointsInRange;
             }
         }
+
     }
 }

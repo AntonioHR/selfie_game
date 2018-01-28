@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 50
   targetId: clone
+  avatar1: {fileID: 21300000, guid: 0ada2671d245c6e419cfb6e2efea3d24, type: 3}
   msg1: I think i saw a dude just like you
+  avatar2: {fileID: 21300000, guid: 0ada2671d245c6e419cfb6e2efea3d24, type: 3}
   msg2: That's cool!
