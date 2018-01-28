@@ -10,6 +10,7 @@ namespace SelfieTeam.Selfie.Quests
     {
         private int points;
 
+        public GameObject SelfieProgressIndicatorPrefab;
         public AnimationCurve viewersCurve;
         public float pointsTarget;
         public int viewersTarget;
@@ -52,11 +53,7 @@ namespace SelfieTeam.Selfie.Quests
 
         public IEnumerator ListenForSelfie(SelfieTarget selfieTarget)
         {
-            return ListenForSelfie(selfieTarget, defaultSelfieTime, ShowSelfieFeedback, ToggleSelfieDisplay);
-        }
-        public IEnumerator ListenForSelfie(SelfieTarget selfieTarget, float selfieTime)
-        {
-            return ListenForSelfie(selfieTarget, selfieTime, ShowSelfieFeedback, ToggleSelfieDisplay);
+            return ListenForSelfie(selfieTarget, defaultSelfieTime);
         }
 
         internal SelfieTarget GetTarget(string targetId)
@@ -80,38 +77,30 @@ namespace SelfieTeam.Selfie.Quests
         {
 
         }
-        public void ToggleSelfieDisplay(bool val)
-        {
-            //interfManager.batteryImage.enabled = val;
-            SelfieProgressIndicator.Instance.SetVisible(val);
-        }
 
-        public void ShowSelfieFeedback(float val)
+        public IEnumerator ListenForSelfie(SelfieTarget target, float requiredTime)
         {
-            SelfieProgressIndicator.Instance.SetProgress(val);
-            //interfManager.SetBatteryNow(val);
-        }
-
-        public IEnumerator ListenForSelfie(SelfieTarget target, float requiredTime, Action<float> feedbackCallback, Action<bool> toggleCallback)
-        {
-            SelfieProgressIndicator.Instance.SetTarget(target);
-            SelfieProgressIndicator.Instance.SetVisible(false);
+            var progressIndicator = GameObject.Instantiate(SelfieProgressIndicatorPrefab).GetComponent<SelfieProgressIndicator>();
+            progressIndicator.Init(Player.Instance);
+            progressIndicator.SetTarget(target);
             bool inSelfie = target.IsInSelfie;
-            toggleCallback(inSelfie);
+            progressIndicator.SetVisible(inSelfie);
             while (true)
             {
                 float lerp = Mathf.InverseLerp(0, requiredTime, target.SelfieTime);
                 if (target.IsInSelfie != inSelfie)
                 {
                     inSelfie = target.IsInSelfie;
-                    toggleCallback(inSelfie);
+                    progressIndicator.SetVisible(inSelfie);
                 }
                 if (inSelfie)
-                    feedbackCallback(lerp);
+                    progressIndicator.SetProgress(lerp);
                 if (lerp >= 1)
                     break;
+                progressIndicator.SetTarget(target);
                 yield return null;
             }
+            GameObject.Destroy(progressIndicator);
         }
     }
 }

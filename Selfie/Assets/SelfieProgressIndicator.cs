@@ -9,7 +9,7 @@ using System;
 
 public class SelfieProgressIndicator : MonoBehaviour
 {
-    public static SelfieProgressIndicator Instance { get; private set; }
+    
 
     public AnimationCurve curve;
     public List<Sprite> spriteSequence;
@@ -18,9 +18,9 @@ public class SelfieProgressIndicator : MonoBehaviour
     public Player player;
 
 
-    public void Init()
+    public void Init(Player player)
     {
-        Instance = this;
+        this.player = player;
     }
 
     private void Start()
@@ -47,5 +47,10 @@ public class SelfieProgressIndicator : MonoBehaviour
     internal void SetVisible(bool val)
     {
         img.enabled = val;
+    }
+
+    internal void Init(object instance)
+    {
+        throw new NotImplementedException();
     }
 }

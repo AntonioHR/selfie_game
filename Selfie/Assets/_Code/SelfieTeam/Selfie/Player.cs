@@ -22,8 +22,11 @@ namespace SelfieTeam.Selfie
 
         private bool init;
 
+        public static Player Instance { get; private set; }
+
         internal void Init()
         {
+            Instance = this;
             Debug.Assert(!init, "Player is being initialized multiple times");
             init = true;
             aim.Init(area, selfieCam);
