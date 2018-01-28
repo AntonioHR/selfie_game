@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 50
   targetId: fountain
+  avatar1: {fileID: 21300000, guid: 6b3157998df51b44082f9c6e51411398, type: 3}
   msg1: Take a picture by the fountain
+  avatar2: {fileID: 21300000, guid: 6b3157998df51b44082f9c6e51411398, type: 3}
   msg2: That's cool!

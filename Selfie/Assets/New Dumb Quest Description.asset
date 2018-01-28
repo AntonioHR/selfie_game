@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 50
   targetId: car
+  avatar1: {fileID: 21300000, guid: 7c8d9c4f7c971094fa0c3b7fdcdad1d9, type: 3}
   msg1: I want to see a car!
+  avatar2: {fileID: 21300000, guid: 7c8d9c4f7c971094fa0c3b7fdcdad1d9, type: 3}
   msg2: That's cool!

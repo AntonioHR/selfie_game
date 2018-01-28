@@ -18,6 +18,11 @@ namespace SelfieTeam.Selfie.Quests
         InterfaceManager interfManager;
         TargetDatabase db;
 
+        internal void ShowMessage(string msg1, Sprite avatar)
+        {
+            interfManager.AddComent(msg1, avatar);
+        }
+
         public float defaultSelfieTime = 2;
 
         public void Init(InterfaceManager interfManager, TargetDatabase db)
@@ -82,11 +87,6 @@ namespace SelfieTeam.Selfie.Quests
         {
             SelfieProgressIndicator.Instance.SetProgress(val);
             //interfManager.SetBatteryNow(val);
-        }
-
-        public void ShowMessage(string v)
-        {
-            interfManager.AddComent(v);
         }
 
         public IEnumerator ListenForSelfie(SelfieTarget target, float requiredTime, Action<float> feedbackCallback, Action<bool> toggleCallback)

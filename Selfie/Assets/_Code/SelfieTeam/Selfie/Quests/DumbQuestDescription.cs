@@ -11,15 +11,17 @@ namespace SelfieTeam.Selfie.Quests
     class DumbQuestDescription : QuestDescription
     {
         public string targetId;
+        public Sprite avatar1;
         public string msg1;
+        public Sprite avatar2;
         public string msg2;
 
         protected override IEnumerator RunQuest(QuestRunner runner)
         {
-            runner.ShowMessage(msg1);
+            runner.ShowMessage(msg1, avatar1);
             yield return runner.ListenForSelfie(runner.GetTarget(targetId));
             //runner.RemoveMessage()
-            runner.ShowMessage(msg2);
+            runner.ShowMessage(msg2, avatar2);
         }
         
     }

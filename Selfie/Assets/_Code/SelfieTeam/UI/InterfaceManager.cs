@@ -34,9 +34,11 @@ public class InterfaceManager : MonoBehaviour {
         batteryImage.fillAmount = val;
     }
 
-    public void AddComent(string text){
+    public void AddComent(string text, Sprite portrait){
         GameObject obj = Instantiate(commentPrefab,transform.position, transform.rotation,commentsContent);
-        obj.GetComponent<CommentContent>().SetText(text);
+        var content = obj.GetComponent<CommentContent>();
+        content.SetText(text);
+        content.SetAvatar(portrait);
         scroll.DOVerticalNormalizedPos(0, 1);
         //obj.GetComponent<CommentContent>().set
     }
@@ -45,35 +47,35 @@ public class InterfaceManager : MonoBehaviour {
         Instance = this;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha1)){
-            SetBattery(0.2f,0.2f);
-            SetViewers(999);
-        }
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.Alpha1)){
+    //        SetBattery(0.2f,0.2f);
+    //        SetViewers(999);
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetBattery(0.4f, 0.2f);
-            SetViewers(300);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            SetBattery(0.9f, 0.2f);
-            SetViewers(20);
-        }
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        SetBattery(0.4f, 0.2f);
+    //        SetViewers(300);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha9))
+    //    {
+    //        SetBattery(0.9f, 0.2f);
+    //        SetViewers(20);
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddComent("tu é <b>GOSTOSO</b>");
-        }
+    //    if (Input.GetKeyDown(KeyCode.P))
+    //    {
+    //        AddComent("tu é <b>GOSTOSO</b>");
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            AddComent("que <b>DELI</b>");
-        }
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        AddComent("que <b>DELI</b>");
+    //    }
 
-    }
+    //}
 
 
 

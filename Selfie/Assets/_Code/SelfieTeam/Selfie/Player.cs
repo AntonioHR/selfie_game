@@ -32,5 +32,6 @@ namespace SelfieTeam.Selfie
         {
             Debug.Assert(init, "Player is not being initalized");
         }
+        
     }
 }
